@@ -9,7 +9,7 @@
 
 //restreindre l'accès à la page SI on a cliqué sur un lien de la page d'accueil (et donc fait passer l'id dans l'URL) SINON, on le redirige vers la page d'accueil
 
-debug( $_GET );
+// debug( $_GET );
 
 // if( isset($_GET) )
 // {
@@ -78,7 +78,7 @@ debug( $_GET );
 // }
 // else
 // {
-//     // header("location:index1.php");
+//     // header("location:index.php");
 //     // exit;
 // }
 
@@ -91,20 +91,20 @@ if( isset( $_GET['id_produit']) )
 }
 else
 {
-    header('location:index1.php');
+    header('location:index.php');
     exit;
 }
 
 // Exploitation des données
 $info = $r->fetch( PDO::FETCH_ASSOC );
-debug($info);
+// debug($info);
 
 // Créer 2 lines : ( file d'ariane )
     // L'un pour allez à l'acueil
     // L'autre pour aller à la catégorie précédente
-$content .= "<a href='index1.php'>Accueil </a> /";
-$content .= "<a href='index1.php?action=$info[categorie]'> " . ucfirst( $info['categorie'] ) . "</a>";
-// http://localhost/PHP/boutique/index1.php?action=tshirt
+$content .= "<a href='index.php'>Accueil </a> /";
+$content .= "<a href='index.php?action=$info[categorie]'> " . ucfirst( $info['categorie'] ) . "</a>";
+// http://localhost/PHP/boutique/index.php?action=tshirt
 
 foreach( $info as $indice => $valeur )
 {

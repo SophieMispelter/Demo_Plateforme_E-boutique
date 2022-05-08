@@ -2,9 +2,9 @@
 
 <?php
 
-debug( $_POST );
+// debug( $_POST );
 
-debug( $_GET );
+// debug( $_GET );
 
 if( isset($_POST['ajout_panier']) )
 {
@@ -19,8 +19,6 @@ if( isset($_POST['ajout_panier']) )
 // Validation du panier pour payer
 if( isset($_GET['action']) && $_GET['action'] == 'payer' )
 {
-    echo "Payons <br>";
-
     // echo $_SESSION['membre']['id_membre'];
 
     // MAJ table 'commande' BDD
@@ -81,7 +79,7 @@ if( isset($_GET['action']) && $_GET['action'] == 'payer' )
     $content .= "<div class='alert alert-success'>Commande validée. Voici votre numéro de commande : à faire</div>";
 }
 
-debug( $_SESSION );
+// debug( $_SESSION );
 
 // Affichage du contenu du panier :
 $content .= "<table class='table'>";

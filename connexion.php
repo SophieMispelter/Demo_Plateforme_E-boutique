@@ -2,7 +2,7 @@
 
 <?php
 
-debug( $_GET );
+// debug( $_GET );
 
 if( isset($_GET['action']) && $_GET['action'] == 'deconnexion' )
 {
@@ -22,7 +22,7 @@ if( userConnect() )
 
 if( $_POST )
 {
-    debug( $_POST );
+    // debug( $_POST );
 
     // Comparaison du pseudo posté et celui en BDD :
     $r = execute_requete("SELECT * FROM membre WHERE pseudo = '$_POST[pseudo]'");
@@ -32,7 +32,7 @@ if( $_POST )
     {
         // Récupérer le mot de passe de la BDD
         $membre = $r->fetch( PDO::FETCH_ASSOC );
-        debug($membre);
+        // debug($membre);
 
         // password_verify( arg1, arg2 ); retourne true ou false et permet de comparer une chaîne à une chaîne cryptée
             // arg1: le mot de passe saisie par l'utilisateur
@@ -43,7 +43,7 @@ if( $_POST )
             // echo "CONNEXION !!!";
 
             $_SESSION['membre'] = $membre;
-            debug( $_SESSION );
+            // debug( $_SESSION );
 
             // $_SESSION['membre']['prenom'] = $membre['prenom'];
             // debug( $_SESSION );

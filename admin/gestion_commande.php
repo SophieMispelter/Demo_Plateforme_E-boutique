@@ -44,7 +44,7 @@ $content .= "<table class='table table-bordered'>";
 $content .= "</table>";
 
 // Suivi des commandes
-debug( $_GET );
+// debug( $_GET );
 
 if( isset($_GET['details']) )
 {

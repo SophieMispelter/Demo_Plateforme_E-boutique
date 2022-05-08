@@ -2,7 +2,7 @@
 
 <?php
 
-debug( $_GET );
+// debug( $_GET );
 
 // Suppression d'un membre
 $succeed = "";
@@ -18,13 +18,12 @@ if( isset($_GET['action']) && ( $_GET['action'] == 'modification' ))
 {
     if( isset( $_GET['id_membre'] ) ) 
     {
-        echo "YOYO";
         // Récupération des infos du membre à modifier, pour pré remplir le formulaire
         $r = execute_requete("SELECT * FROM membre WHERE id_membre='$_GET[id_membre]'");
 
         // Exploitation des données:
         $membre = $r->fetch( PDO:: FETCH_ASSOC );
-        debug( $membre );
+        // debug( $membre );
     }
 
     $pseudo = (isset($membre['pseudo'])) ? $membre['pseudo'] : "";
@@ -43,7 +42,7 @@ if( isset($_GET['action']) && ( $_GET['action'] == 'modification' ))
     $succeed = "<div class='alert alert-success'>Modification réussie</div>";
 }
 
-debug( $_POST );
+// debug( $_POST );
 // Modification en BDD après validation du formulaire
 if( !empty($_POST) )
 {

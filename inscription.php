@@ -11,7 +11,7 @@ if( userConnect() )
 
 if( $_POST )
 {
-    debug( $_POST );
+    // debug( $_POST );
 
     //Controles des saisies de l'internaute (il faudrait faire des controles pour tous les champs du formulaire)
 
@@ -24,7 +24,7 @@ if( $_POST )
     // Tester si le pseudo est disponible : (on ne peut pas avoir deux fois le même pseudo car nous avons indiqué lors de la création de la BDD une clé UNIQUE pour le champ 'pseudo')
     $r = execute_requete("SELECT pseudo FROM membre WHERE pseudo = '$_POST[pseudo]'");
 
-    debug( $r ); // $r : représente le jeu de résultat retournée par la requête sous forme d'objet PDOStatment
+    // debug( $r ); // $r : représente le jeu de résultat retournée par la requête sous forme d'objet PDOStatment
 
     // Si le résultat est supérieur ou égal à1, c'est que le pseudo est déjà attribué car il aura trouvé une correspondance dans la table 'membre' et renverra donc une ligne de résultat
     if( $r->rowCount() >= 1 )
@@ -42,21 +42,8 @@ if( $_POST )
 
     // Vérification de l'expression du mdp et cryptage du mot de passe ::
     $valeur_autorisee = "#^[a-zA-Z-0-9._-]+$#";
-    debug( $valeur_autorisee );
-    /*
-        L'expression est contenu entre les #
-        ^ représente le début de la chaine
-        $ marque la fin de la chaine
-        entre crochets, on retrouver la liste des caractères autorisés :
-            a-z : alphabet minuscule
-            A-Z : alphabet MAJUSUCLE
-            0-9 : les chiffres
-            . : point
-            _ : underscore
-            - : tiret
-        + (après les crochets) permet de réutiliser les caractères plusieurs fois
-    */
-
+    // debug( $valeur_autorisee );
+  
     $test = preg_match( $valeur_autorisee, $_POST['mdp'] );
     //preg_match( arg1, arg2 ): permet d'effectuer une recherche de correspondance avec une expression rationnelle (ici, $valeur_autorisee)
     //arg1 : l'expression régulière 
@@ -72,14 +59,14 @@ if( $_POST )
             //arg2 : le mode de cryptage
 
         // echo "$_POST[mdp]";
-        debug( $_POST['mdp'] );
+        // debug( $_POST['mdp'] );
     }
     else // Sinon c'est que le mdp ne respecte pas le format attendu
     {
         $error .= "<div class='alert alert-danger'>Le mot de passe n'est pas valide( caractères acceptés : a-z et 0-9) </div>";
     }
 
-    echo $_POST['sexe'];
+    // echo $_POST['sexe'];
 
     // Insertion
     if( empty( $error) ) // Si la variable $error est vide (c'est que le formulaire a été rempli correctement), alors on fait l'insertion
