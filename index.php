@@ -118,6 +118,7 @@ $content .= "</div>";
 ?>
 
 <h1>Bienvenue sur mon site</h1>
+<h2>Vente en ligne d'articles vestimentaires</h2>
 
 <?php echo $content ?>
 
