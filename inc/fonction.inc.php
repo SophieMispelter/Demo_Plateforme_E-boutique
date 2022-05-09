@@ -80,7 +80,7 @@ function ajout_panier( $titre, $id_produit, $quantite, $prix )
         //arg2 : dans quel tableau on effectue la recherche
     //La valeur de retour de la fonction renverra l'indice (correspondant à l'indice du tableau SI il y a une correspondance de la rechercher) sinon "false"
 
-    debug( $index );
+    // debug( $index );
 
     //SI $index est strictement différent de "false" c'est que le produit est déjà présent dans le panier car la fonction array_search() aura trouvé un indice correspondant et donc on va ajouter la quantite avec la nouvelle récupérée lors de l'ajout au panier
     if( $index !== false )
